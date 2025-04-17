@@ -25,7 +25,7 @@ unzip -q rawdata.zip
 # 1. Create a directory named data
 mkdir data
 # 2. Move the ./rawdata directory to ./data/raw
-mv rawdata/* data/raw
+mv rawdata/ data/raw
 # 3. List the contents of the ./data/raw directory
 ls data/raw
 # 4. In ./data/processed, create the following directories: server_logs, user_logs, and event_logs
@@ -42,11 +42,8 @@ cp raw/event*log processed/event_logs/
 # 7. For user privacy, remove all files containing IP addresses (files with "ipaddr" in the filename) from ./data/raw and ./data/processed/user_logs
 rm raw/*ipaddr*
 rm processed/*/*ipaddr*
-rf -rf ./data
-
 # 8. Create a file named ./data/inventory.txt that lists all the files in the subfolders of ./data/processed
 touch inventory.txt
 echo processed/*/* >> inventory.txt
-cat inventory.txt
 ###########################################
 echo "Project setup is complete!"
